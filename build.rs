@@ -38,7 +38,7 @@ fn main() {
     run_command(
         "cp",
         vec![
-            "-r".to_string(),
+            "-R".to_string(),
             format!("{}/", SUBMODULE),
             out_path_str.to_string(),
         ],
