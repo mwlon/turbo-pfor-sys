@@ -41,6 +41,8 @@ fn main() {
             format!("{}/lib{}.a", out_path_str, LIB),
         ],
     );
+    // the makefile only does in-source builds, polluting the lib directory
+    run_command("make", vec!["-C", SUBMODULE, "clean"]);
 
     println!("cargo:rustc-link-search=native={}", out_path_str);
     println!("cargo:rustc-link-lib=static={}", LIB);
