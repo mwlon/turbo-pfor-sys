@@ -1,0 +1,8 @@
+**/target
+.idea
+*.iml
+temp
+**/.DS_Store
+*.swp
+**/__pycache__/**
+.vscode/*
