@@ -35,14 +35,16 @@ fn main() {
     let out_path_str = out_path.to_str().unwrap();
     // We do the build in the out dir instead of in source, since it pollutes
     // the lib directory.
-    run_command(
-        "cp",
-        vec![
-            "-R".to_string(),
-            format!("{}/", SUBMODULE),
-            out_path_str.to_string(),
-        ],
-    );
+    for item in ["lib", "include", "makefile"] {
+        run_command(
+            "cp",
+            vec![
+                "-R".to_string(),
+                format!("{}/{}", SUBMODULE, item),
+                out_path_str.to_string(),
+            ],
+        );
+    }
     run_command("make", vec!["-C", out_path_str, "libic.a"]);
 
     println!("cargo:rustc-link-search=native={}", out_path_str);
