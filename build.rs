@@ -4,7 +4,7 @@ use std::path::PathBuf;
 use std::process::Command;
 
 const SUBMODULE: &str = "TurboPFor-Integer-Compression";
-const LIB: &str = "ics";
+const LIB: &str = "ic";
 
 fn run_command<I, S>(prog: &str, args: I)
 where
