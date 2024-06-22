@@ -1,10 +1,10 @@
 use std::env;
 use std::ffi::OsStr;
 use std::path::PathBuf;
-use std::process::{Command, ExitStatus};
+use std::process::Command;
 
-const SUBMODULE: &'static str = "TurboPFor-Integer-Compression";
-const LIB: &'static str = "ics";
+const SUBMODULE: &str = "TurboPFor-Integer-Compression";
+const LIB: &str = "ics";
 
 fn run_command<I, S>(prog: &str, args: I)
 where

@@ -3,7 +3,6 @@ name = "turbo_pfor_sys"
 version = "0.1.0"
 edition = "2021"
 
-links = "turbopfor"
 build = "build.rs"
 
 authors = ["mwlon <m.w.loncaric@gmail.com>"]
