@@ -9,8 +9,8 @@ authors = ["mwlon <m.w.loncaric@gmail.com>"]
 categories = ["compression", "encoding"]
 description = "TurboPFor codec bindings"
 include = [
-  "TurboPFor-Integer-Compression/lib/**/*",
-  "TurboPFor-Integer-Compression/include/**/*",
+  "TurboPFor-Integer-Compression/lib/**/*.[ch]",
+  "TurboPFor-Integer-Compression/include/**/*.h",
   "TurboPFor-Integer-Compression/makefile",
   "src/**/*",
   "Cargo.toml",
@@ -25,4 +25,3 @@ libc = "0.2"
 
 [build-dependencies]
 bindgen = "0.69.4"
-
