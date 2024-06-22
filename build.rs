@@ -32,17 +32,18 @@ fn main() {
         .write_to_file(out_path.join("bindings.rs"))
         .expect("Couldn't write bindings!");
 
-    let out_path_str = out_path.display();
-    run_command("make", vec!["-C", SUBMODULE, "libic.a"]);
+    let out_path_str = out_path.to_str().unwrap();
+    // We do the build in the out dir instead of in source, since it pollutes
+    // the lib directory.
     run_command(
-        "mv",
+        "cp",
         vec![
-            format!("{}/libic.a", SUBMODULE),
-            format!("{}/lib{}.a", out_path_str, LIB),
+            "-r".to_string(),
+            format!("{}/", SUBMODULE),
+            out_path_str.to_string(),
         ],
     );
-    // the makefile only does in-source builds, polluting the lib directory
-    run_command("make", vec!["-C", SUBMODULE, "clean"]);
+    run_command("make", vec!["-C", out_path_str, "libic.a"]);
 
     println!("cargo:rustc-link-search=native={}", out_path_str);
     println!("cargo:rustc-link-lib=static={}", LIB);
